@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">About Us</h4>
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-secondary">About</li>
+        </ol>
+    </div>
+</div>
+<!-- Header End -->
+<!-- profil of lualaba copper smelter -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">PROFIL COMPANY</p>
+            <h2 class="display-4 text-capitalize mb-3">Lualaba Copper Smelter: Your Trusted Partner in Smelting
+                Excellence</h2>
+            <p class="mb-4 fs-5">Lualaba Copper Smelter is a premier smelting company dedicated to delivering
+                high-quality smelting services to clients across various industries. With a strong commitment to
+                excellence, safety, and environmental responsibility, we have established ourselves as a trusted
+                partner in the smelting sector.</p>
+        </div>
+    </div>
+</div>
+
+<!-- end profil company -->
+
+
+<!-- About Start -->
+<div class="container-fluid about py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="about-item-image d-flex">
+                    <img src="{% static 'assets/img/about.jpg' %}" class="img-1 img-fluid w-50" alt="">
+                    <img src="{% static 'assets/img/about-3.jpg' %}" class="img-2 img-fluid w-50" alt="">
+                    <div class="about-item-image-content">
+                        <img src="{% static 'assets/img/about-1.png' %}" class="img-fluid w-100 h-100"
+                            style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.1s">
+                <div class="about-item-content">
+                    <p class="text-uppercase text-secondary fs-5 mb-0">WE ARE Smelting COMPANY</p>
+                    <h2 class="display-4 text-capitalize mb-3">Making your vision come true at the basics.</h2>
+                    <p class="mb-4 fs-5">Lualaba Copper Smelter is a leading smelting company dedicated to providing
+                        top-notch
+                        services in the field of metallurgy and mineral processing. With years of experience and a team
+                        of skilled professionals, we specialize in the smelting of copper and other valuable metals.
+                    </p>
+                    <div class="pb-4 mb-4 border-bottom">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="about-item-content-img">
+                                    <img src="{% static 'assets/img/about-2.jpg' %}" class="img-fluid w-100" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="d-flex mb-4">
+                                    <div class="text-secondary">
+                                        <i class="fas fa-user-shield fa-3x"></i>
+                                    </div>
+                                    <h4 class="ms-3">Building quality standards</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="text-secondary">
+                                        <i class="fas fa-users-cog fa-3x"></i>
+                                    </div>
+                                    <h4 class="ms-3">Certified engineer’s team</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gy-0 gx-4 justify-content-between pb-4">
+                        <div class="col-lg-6">
+                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> 100% Satisfaction
+                            </p>
+                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> Trained Emploies
+                            </p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> Annual Pass
+                                Programs</p>
+                            <p class="text-dark mb-0"><i class="fas fa-check text-secondary me-1"></i> Flexible and
+                                cost effective</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-secondary d-inline-block py-3 px-5 me-2 flex-shrink-0 wow fadeInUp"
+                        data-wow-delay="0.1s" href="#">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- mission -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">OUR MISSION</p>
+            <h2 class="display-4 text-capitalize mb-3">Committed to Excellence in Smelting Services</h2>
+            <p class="mb-4 fs-5">At Lualaba Copper Smelter, our mission is to deliver exceptional smelting
+                services that meet the highest standards of quality, safety, and environmental responsibility. We
+                are dedicated to fostering innovation, efficiency, and sustainability in all our operations,
+                ensuring long-term value for our clients, employees, and the communities we serve.</p>
+        </div>
+    </div>
+</div>
+<!-- end mission -->
+<!-- technic -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">OUR TECHNIQUE</p>
+            <h2 class="display-4 text-capitalize mb-3">Advanced Smelting Techniques for Superior Results</h2>
+            <p class="mb-4 fs-5">Lualaba Copper Smelter employs state-of-the-art smelting techniques and
+                technologies to ensure optimal recovery of valuable metals while minimizing environmental impact.
+                Our advanced methods include flash smelting, continuous casting, and energy-efficient furnaces,
+                allowing us to achieve superior product quality and operational efficiency. We continuously invest
+                in research and development to stay at the forefront of smelting innovation.</p>
+        </div>
+    </div>
+</div>
+<!-- end technic -->
+<!-- capacity -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">OUR CAPACITY</p>
+            <h2 class="display-4 text-capitalize mb-3">Robust Smelting Capacity to Meet Diverse Needs</h2>
+            <p class="mb-4 fs-5">Lualaba Copper Smelter boasts a robust smelting capacity, enabling us to handle
+                large volumes of raw materials and deliver consistent output to our clients. Our facilities are
+                equipped with high-capacity furnaces and processing units that can efficiently manage varying
+                scales of operations. This capacity allows us to serve a diverse range of industries, from mining
+                companies to manufacturers, ensuring timely delivery and exceptional service quality.</p>
+        </div>
+    </div>
+</div>
+<!-- vision -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">OUR VISION</p>
+            <h2 class="display-4 text-capitalize mb-3">To Be a Global Leader in Sustainable Smelting Solutions</h2>
+            <p class="mb-4 fs-5">Our vision at Lualaba Copper Smelter is to be recognized as a global leader in
+                sustainable smelting solutions, setting the benchmark for excellence in the industry. We aspire to
+                expand our reach internationally, forging strong partnerships and delivering innovative services that
+                drive progress and sustainability. Through continuous improvement and a commitment to our core values,
+                we aim to create lasting value for our stakeholders and contribute positively to the communities we
+                operate in.</p>
+        </div>
+    </div>
+</div>
+<!-- end vision -->
+
+<!-- our values -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">OUR VALUES</p>
+            <h2 class="display-4 text-capitalize mb-3">Core Values That Define Us</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-handshake fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Integrity</h4>
+                    <p class="mb-0">We uphold the highest standards of integrity in all our actions, ensuring
+                        transparency and honesty in our dealings with stakeholders.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-leaf fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Sustainability</h4>
+                    <p class="mb-0">We are committed to sustainable practices that minimize our environmental impact
+                        and promote the well-being of the communities we serve.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-users fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Collaboration</h4>
+                    <p class="mb-0">We believe in the power of collaboration, working together with our clients,
+                        partners, and employees to achieve shared goals.</p>
+                </div>
+            </div>
+            <!-- 1.	Promote Copper Mine Development -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-chart-line fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Excellence</h4>
+                    <p class="mb-0">We strive for excellence in everything we do, continuously improving our processes
+                        and services to exceed expectations.</p>
+                </div>
+            </div>
+            <!-- 2.	Enhance Congo's Manufacturing Capacity -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-shield-alt fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Safety</h4>
+                    <p class="mb-0">We prioritize the safety and well-being of our employees and stakeholders,
+                        maintaining a safe work environment at all times.</p>
+                </div>
+            </div>
+            <!-- 3.	Improve Logistics -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1.1s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-innovation fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Innovation</h4>
+                    <p class="mb-0">We embrace innovation, leveraging cutting-edge technologies and ideas to drive
+                        progress and deliver superior solutions.</p>
+                </div>
+            </div>
+            <!-- 4.	Increase Local Transaction Volume -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1.3s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-cogs fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Responsibility</h4>
+                    <p class="mb-0">We take responsibility for our actions, ensuring accountability and ethical
+                        conduct in all aspects of our business.</p>
+                </div>
+            </div>
+            <!-- 5.	Increase Employment Opportunities -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1.5s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-globe fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Community</h4>
+                    <p class="mb-0">We are dedicated to making a positive impact in the communities where we operate,
+                        fostering growth and development.</p>
+                </div>
+            </div>
+
+            <!-- 6.	Improve Infrastructure -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1.7s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-building fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Quality</h4>
+                    <p class="mb-0">We are committed to delivering high-quality products and services that meet the
+                        needs and expectations of our clients.</p>
+                </div>
+            </div>
+            <!-- 7.	Support Local Communities -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1.9s">
+                <div class="value-item bg-light rounded text-center p-4">
+                    <i class="fas fa-heart fa-3x text-secondary mb-3"></i>
+                    <h4 class="mb-3">Respect</h4>
+                    <p class="mb-0">We respect the diverse perspectives and contributions of our employees,
+                        clients, and partners, fostering an inclusive and supportive environment.</p>
+                </div>
+            </div>
+            <!-- 8.	Environmental Protection -->
+
+
+
+        </div>
+    </div>
+</div>
+
+<!-- end our values -->
+
+{% endblock content %}

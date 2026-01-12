@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Services</h4>
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-secondary">Services</li>
+        </ol>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Services Start -->
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">Our Services</p>
+            <h2 class="display-4 text-capitalize mb-3">our service is creative, & decent</h2>
+        </div>
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="{% cycle '0.2s' '0.4s' '0.6s' %}">
+                <div class="service-item">
+                    <div class="service-img">
+                        {% if service.image %}
+                        <img src="{{ service.image.url }}" class="img-fluid w-100" alt="{{ service.title }}">
+                        {% else %}
+                        <img src="{% static 'assets/img/service-1.jpg' %}" class="img-fluid w-100"
+                            alt="{{ service.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
+                            {% if service.icon %}
+                            <i class="{{ service.icon }} text-primary fa-4x"></i>
+                            {% else %}
+                            <i class="fas fa-cog text-primary fa-4x"></i>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'service_detail' service.pk %}" class="d-block fs-4 my-4">{{ service.title}}</a>
+                        <p class="text-white mb-4">{{ service.description|truncatechars:120 }}</p>
+                        <a class="btn btn-secondary py-2 px-4" href="{% url 'service_detail' service.pk %}">Read
+                            More</a>
+                    </div>
+                    <div class="service-title">
+                        <div class="d-flex align-items-center ps-4 w-100">
+                            <h4>{{ service.title }}</h4>
+                        </div>
+                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
+                            {% if service.icon %}
+                            <i class="{{ service.icon }} text-primary fa-2x"></i>
+                            {% else %}
+                            <i class="fas fa-cog text-primary fa-2x"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
+                <a class="btn btn-secondary py-3 px-5 mt-4" href="#">More Services</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+{% endblock content %}

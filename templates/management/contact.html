@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Contact Us</h4>
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-secondary">Contact</li>
+        </ol>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Contact Start -->
+<div class="container-fluid contact bg-light py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="text-center mx-auto pb-5" style="max-width: 800px;">
+                    <p class="text-uppercase text-secondary fs-5 mb-0">Let’s Connect</p>
+                    <h2 class="display-4 text-capitalize mb-3">Send Your Message</h2>
+                    <h4 class="lh-base mb-0">Receive messages instantly with our PHP and Ajax contact form - available
+                        in the <a class="text-secondary" href="https://htmlcodex.com/downloading/?item=3351">Pro
+                            Version</a> only.</h4>
+                </div>
+                <form method="post" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    {% if sent %}
+                    <div class="alert alert-success">Votre message a été envoyé. Merci !</div>
+                    {% endif %}
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating border border-secondary">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                    required>
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating border border-secondary">
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Your Email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating border border-secondary">
+                                <input type="phone" name="phone" class="form-control" id="phone" placeholder="Phone"
+                                    required>
+                                <label for="phone">Your Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating border border-secondary">
+                                <input type="text" name="project" class="form-control" id="project"
+                                    placeholder="Project" required>
+                                <label for="project">Your Project</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating border border-secondary">
+                                <input type="text" name="subject" class="form-control" id="subject"
+                                    placeholder="Subject" required>
+                                <label for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating border border-secondary">
+                                <textarea name="body" class="form-control" placeholder="Leave a message here"
+                                    id="message" style="height: 160px" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+                <div class="contact-map h-100 w-100">
+                    <!-- Lieu : Kolwezi, RDC -->
+                    <iframe class="h-100 w-100" style="height: 500px;"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1002407.8304748277!2d24.844199576685572!3d-10.714577171218046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19725d44e7a65555%3A0xcd556c05e5c70f6a!2sKolwezi%2C%20R%C3%A9publique%20D%C3%A9mocratique%20du%20Congo!5e0!3m2!1sfr!2sfr!4v1694259649153!5m2!1sfr!2sfr"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+{% endblock %}

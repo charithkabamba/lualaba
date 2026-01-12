@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            {% if service.image %}
+            <img src="{{ service.image.url }}" class="img-fluid w-100 mb-4" alt="{{ service.title }}">
+            {% else %}
+            <img src="{% static 'assets/img/service-1.jpg' %}" class="img-fluid w-100 mb-4" alt="{{ service.title }}">
+            {% endif %}
+            <h1 class="mb-3">{{ service.title }}</h1>
+            <p class="text-muted">Category: {{ service.category.name }}</p>
+            <div class="mb-4">{{ service.description }}</div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h5>Other Services</h5>
+                <ul class="list-unstyled">
+                    {% for s in other_services %}
+                    <li><a href="{% url 'service_detail' s.pk %}">{{ s.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'services' %}" class="btn btn-secondary mt-3">Back to Services</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

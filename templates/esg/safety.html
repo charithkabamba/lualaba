@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- safety pages -->
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Safety Commitment</h4>
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-secondary">Safety</li>
+        </ol>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Safety Start -->
+<div class="container-fluid safety py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="safety-item-image d-flex">
+                    <img src="{% static 'assets/img/logo-lcs.jpeg' %}" class="img-1 img-fluid w-50" alt="">
+                    <img src="{% static 'assets/img/logo-lcs.jpeg' %}" class="img-2 img-fluid w-50" alt="">
+                    <div class="safety-item-image-content">
+                        <img src="{% static 'assets/img/logo-lcs.jpeg' %}" class="img-fluid w-100 h-100"
+                            style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.1s">
+                <div class="safety-item-content">
+                    <p class="text-uppercase text-secondary fs-5 mb-0">OUR SAFETY COMMITMENT</p>
+                    <h2 class="display-4 text-capitalize mb-3">Prioritizing Safety in Every Operation</h2>
+                    <p class="mb-4 fs-5">At Lualaba Copper Smelter, safety is our top priority. We are committed to
+                        maintaining a safe and healthy work environment for all our employees, contractors, and
+                        visitors.
+                        Our comprehensive safety programs and protocols are designed to prevent accidents and ensure
+                        that
+                        everyone goes home safely at the end of the day.</p>
+                    <div class="pb-4 mb-4 border-bottom">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="safety-item-content-img">
+                                    <img src="{% static 'assets/img/logo-lcs.jpeg' %}" class="img-fluid w-100" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="d-flex mb-4">
+                                    <div class="text-secondary">
+                                        <i class="fas fa-shield-alt fa-3x"></i>
+                                    </div>
+                                    <h4 class="ms-3">Comprehensive Safety Training</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="text-secondary">
+                                        <i class="fas fa-ambulance fa-3x"></i>
+                                    </div>
+                                    <h4 class="ms-3">Emergency Response Preparedness</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Safety End -->
+{% endblock content %}
