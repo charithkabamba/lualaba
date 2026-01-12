@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-i_wlrvqb(&8%x7y9^)i0x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [ config('ALLOWED_HOSTS', default='*')]
 
 
 # Application definition
@@ -90,9 +90,10 @@ WSGI_APPLICATION = 'lcs.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASE_URL = config('DATABASE_URL', default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
+
 DATABASES = {
-    'default': dj_database_url.config('DATABASE_URL'
-    )
+    'default': dj_database_url.config(default=DATABASE_URL)
 }
 
 
