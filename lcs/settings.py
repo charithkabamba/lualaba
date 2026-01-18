@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.onrender.com',
-    config('ALLOWED_HOSTS', default='').split(','),
+    'management-2dw7.onrender.com',
 ]
 
 
