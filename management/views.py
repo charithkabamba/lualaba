@@ -9,8 +9,10 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 def index(request):
+    services = Service.objects.filter(is_active=True).order_by('title')[:6]
     carousel = Carousel.objects.filter(is_active=True).order_by('-created_at')
     context = {
+        'services': services,
         'carousel': carousel,
     }
     return render(request, 'index.html', context)

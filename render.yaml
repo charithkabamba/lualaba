@@ -9,8 +9,8 @@ services:
     plan: free
     name: lcs-web
     runtime: python
-    buildCommand: './build.sh'
-    startCommand: 'gunicorn lcs.wsgi:application'
+    buildCommand: 'pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate'
+    startCommand: 'gunicorn lcs.wsgi:application --bind 0.0.0.0:10000'
     envVars:
       - key: DATABASE_URL
         fromDatabase:

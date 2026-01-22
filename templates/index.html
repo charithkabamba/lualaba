@@ -4,7 +4,6 @@
 {% block content %}
 
 <!-- afficher carousel -->
-
 <!-- Carousel Start -->
 <div class="container-fluid overflow-hidden px-0">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
@@ -32,7 +31,8 @@
                         data-animation="fadeInUp" data-delay="1s" style="animation-delay: 1s;">{{ item.subtitle }}
                     </p>
                     <h1 class="display-1 text-capitalize text-white mb-4 fadeInUp animate__animated"
-                        data-animation="fadeInUp" data-delay="1.3s" style="animation-delay: 1.3s;">{{ item.title }}</h1>
+                        data-animation="fadeInUp" data-delay="1.3s" style="animation-delay: 1.3s;">{{ item.title }}
+                    </h1>
                     <p class="mb-5 fs-5 fadeInUp animate__animated" data-animation="fadeInUp" data-delay="1.5s"
                         style="animation-delay: 1.5s;">{{ item.description }}
                     </p>
@@ -114,6 +114,9 @@
 </div>
 <!-- Carousel End -->
 
+
+
+
 <!-- About Start -->
 <div class="container-fluid about py-5">
     <div class="container py-5">
@@ -131,8 +134,10 @@
             <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.1s">
                 <div class="about-item-content">
                     <p class="text-uppercase text-secondary fs-5 mb-0">WE ARE CONSTRUCTION COMPANY</p>
-                    <h2 class="display-4 text-capitalize mb-3">Making your vision come true at the basics.</h2>
-                    <p class="mb-4 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    <h2 class="display-4 text-capitalize mb-3">Making your vision come true at the basics.
+                    </h2>
+                    <p class="mb-4 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     </p>
                     <div class="pb-4 mb-4 border-bottom">
@@ -160,15 +165,19 @@
                     </div>
                     <div class="row gy-0 gx-4 justify-content-between pb-4">
                         <div class="col-lg-6">
-                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> 100% Satisfaction
+                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> 100%
+                                Satisfaction
                             </p>
-                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> Trained Emploies
+                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> Trained
+                                Emploies
                             </p>
                         </div>
                         <div class="col-lg-6">
-                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> Annual Pass
+                            <p class="text-dark"><i class="fas fa-check text-secondary me-1"></i> Annual
+                                Pass
                                 Programs</p>
-                            <p class="text-dark mb-0"><i class="fas fa-check text-secondary me-1"></i> Flexible and
+                            <p class="text-dark mb-0"><i class="fas fa-check text-secondary me-1"></i>
+                                Flexible and
                                 cost effective</p>
                         </div>
                     </div>
@@ -224,7 +233,6 @@
 </div>
 <!-- Features End -->
 
-
 <!-- Services Start -->
 <div class="container-fluid service py-5">
     <div class="container py-5">
@@ -233,152 +241,48 @@
             <h2 class="display-4 text-capitalize mb-3">our service is creative, & decent</h2>
         </div>
         <div class="row g-4">
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+            {% for service in services %}
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="{% cycle '0.2s' '0.4s' '0.6s' %}">
                 <div class="service-item">
                     <div class="service-img">
-                        <img src="{% static 'assets/img/service-1.jpg' %}" class="img-fluid w-100" alt="Image">
+                        {% if service.image %}
+                        <img src="{{ service.image.url }}" class="img-fluid w-100" alt="{{ service.title }}">
+                        {% else %}
+                        <img src="{% static 'assets/img/service-1.jpg' %}" class="img-fluid w-100"
+                            alt="{{ service.title }}">
+                        {% endif %}
                     </div>
                     <div class="service-content text-center p-4">
                         <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
-                            <i class="fas fa-home text-primary fa-4x"></i>
+                            {% if service.icon %}
+                            <i class="{{ service.icon }} text-primary fa-4x"></i>
+                            {% else %}
+                            <i class="fas fa-cog text-primary fa-4x"></i>
+                            {% endif %}
                         </div>
-                        <a href="#" class="d-block fs-4 my-4">General Construction</a>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Mollitia, minima!</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
+                        <a href="{% url 'service_detail' service.pk %}" class="d-block fs-4 my-4">{{
+                            service.title}}</a>
+                        <p class="text-white mb-4">{{ service.description|truncatechars:120 }}</p>
+                        <a class="btn btn-secondary py-2 px-4" href="{% url 'service_detail' service.pk %}">Read
+                            More</a>
                     </div>
                     <div class="service-title">
                         <div class="d-flex align-items-center ps-4 w-100">
-                            <h4>General Construction</h4>
+                            <h4>{{ service.title }}</h4>
                         </div>
                         <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-home text-primary fa-2x"></i>
+                            {% if service.icon %}
+                            <i class="{{ service.icon }} text-primary fa-2x"></i>
+                            {% else %}
+                            <i class="fas fa-cog text-primary fa-2x"></i>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{% static 'assets/img/service-2.jpg' %}" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
-                            <i class="fas fa-users-cog text-primary fa-4x"></i>
-                        </div>
-                        <a href="#" class="d-block fs-4 my-4">Property Maintenance</a>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Mollitia, minima!</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
-                    </div>
-                    <div class="service-title">
-                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
-                            <h4>Property Maintenance</h4>
-                        </div>
-                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-users-cog text-primary fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{% static 'assets/img/service-3.jpg' %}" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 120px; height: 120px;">
-                            <i class="fas fa-hospital-user text-primary fa-4x"></i>
-                        </div>
-                        <a href="#" class="d-block fs-4 my-4">Project managment</a>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Mollitia, minima!</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
-                    </div>
-                    <div class="service-title">
-                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
-                            <h4>Project managment</h4>
-                        </div>
-                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-hospital-user text-primary fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{% static 'assets/img/service-4.jpg' %}" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 100px; height: 100px;">
-                            <i class="fas fa-file-invoice-dollar text-primary fa-4x"></i>
-                        </div>
-                        <a href="#" class="d-block fs-4 my-4">Virtual Design & Build</a>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Mollitia, minima!</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
-                    </div>
-                    <div class="service-title">
-                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
-                            <h4>Virtual Design & Build</h4>
-                        </div>
-                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-file-invoice-dollar text-primary fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{% static 'assets/img/service-5.jpg' %}" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 100px; height: 100px;">
-                            <i class="fas fa-cogs text-primary fa-4x"></i>
-                        </div>
-                        <a href="#" class="d-block fs-4 my-4">Preconstruction</a>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Mollitia, minima!</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
-                    </div>
-                    <div class="service-title">
-                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
-                            <h4>Preconstruction</h4>
-                        </div>
-                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-cogs text-primary fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="{% static 'assets/img/service-6.jpg' %}" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="bg-secondary btn-xl-square mx-auto" style="width: 100px; height: 100px;">
-                            <i class="fas fa-sitemap text-primary fa-4x"></i>
-                        </div>
-                        <a href="#" class="d-block fs-4 my-4">Design Build</a>
-                        <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Mollitia, minima!</p>
-                        <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
-                    </div>
-                    <div class="service-title">
-                        <div class="d-flex align-items-center justify-content-start ps-4 w-100">
-                            <h4>Design Build</h4>
-                        </div>
-                        <div class="btn-xl-square bg-secondary p-4" style="width: 80px; height: 80px;">
-                            <i class="fas fa-sitemap text-primary fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
             <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                <a class="btn btn-secondary py-3 px-5 mt-4" href="#">More Services</a>
+                <a class="btn btn-secondary py-3 px-5 mt-4" href="{% url 'services' %}">More Services</a>
             </div>
         </div>
     </div>
@@ -401,11 +305,13 @@
                     </div>
                     <div class="blog-content p-4">
                         <div class="d-flex justify-content-between mb-3">
-                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 26 April 2025
+                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 26
+                                April 2025
                             </p>
                             <p class="mb-0"><i class="fa fa-user text-secondary me-1"></i> Admin</p>
                         </div>
-                        <a href="#" class="h4 d-block mb-4">Emerging Tech Trends What to in the Next Decade</a>
+                        <a href="#" class="h4 d-block mb-4">Emerging Tech Trends What to in the Next
+                            Decade</a>
                         <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
                     </div>
                 </div>
@@ -417,11 +323,13 @@
                     </div>
                     <div class="blog-content p-4">
                         <div class="d-flex justify-content-between mb-3">
-                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 26 April 2025
+                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 26
+                                April 2025
                             </p>
                             <p class="mb-0"><i class="fa fa-user text-secondary me-1"></i> Admin</p>
                         </div>
-                        <a href="#" class="h4 d-block mb-4">Emerging Tech Trends What to in the Next Decade</a>
+                        <a href="#" class="h4 d-block mb-4">Emerging Tech Trends What to in the Next
+                            Decade</a>
                         <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
                     </div>
                 </div>
@@ -433,11 +341,13 @@
                     </div>
                     <div class="blog-content p-4">
                         <div class="d-flex justify-content-between mb-3">
-                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 26 April 2025
+                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 26
+                                April 2025
                             </p>
                             <p class="mb-0"><i class="fa fa-user text-secondary me-1"></i> Admin</p>
                         </div>
-                        <a href="#" class="h4 d-block mb-4">Emerging Tech Trends What to in the Next Decade</a>
+                        <a href="#" class="h4 d-block mb-4">Emerging Tech Trends What to in the Next
+                            Decade</a>
                         <a class="btn btn-secondary py-2 px-4" href="#">Read More</a>
                     </div>
                 </div>
