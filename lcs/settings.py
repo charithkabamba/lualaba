@@ -143,8 +143,22 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+# Ensure static files are found
+if STATICFILES_DIRS:
+    import sys
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# WhiteNoise MIME types
+WHITENOISE_MIMETYPES = {
+    '.js': 'application/javascript',
+    '.css': 'text/css',
+}
 
 # MEDIA FILES
 MEDIA_URL = '/media/'

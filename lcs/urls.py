@@ -24,9 +24,9 @@ urlpatterns = [
     path('', include('management.urls')),
     path('blog', include('blog.urls')),
     path('esg', include('esg.urls')),
-
-
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# staticfiles
+
+# Only serve static/media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
