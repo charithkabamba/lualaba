@@ -57,6 +57,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     
@@ -151,15 +153,15 @@ if STATICFILES_DIRS:
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
 
-if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# if not DEBUG:
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # WhiteNoise MIME types
 WHITENOISE_MIMETYPES = {
     '.js': 'application/javascript',
     '.css': 'text/css',
 }
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # MEDIA FILES
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -186,3 +188,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
 #     },
 # }
+MEDIA_URL = '/media/'  # URL pour accéder aux fichiers médias
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Dossier où seront stockées les images
+ 
+STATIC_URL = '/static/'
+ 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier où les fichiers statiques seront collectés
+ 
+# Pour servir les fichiers statiques en mode debug désactivé
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
