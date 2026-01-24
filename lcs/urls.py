@@ -26,7 +26,7 @@ urlpatterns = [
     path('esg', include('esg.urls')),
 ]
 
-# Only serve static/media files in development
+# Serve static/media files in development
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

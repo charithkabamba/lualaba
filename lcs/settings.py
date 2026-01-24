@@ -50,9 +50,8 @@ INSTALLED_APPS = [
     # apps
     'management',
     'blog',
-    # cloudinary_storage',
-    # 'cloudinary',
-    # 'cloudinary_storage',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -156,48 +155,28 @@ USE_TZ = True
 # if not DEBUG:
 #     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# WhiteNoise MIME types
-# WHITENOISE_MIMETYPES = {
-#     '.js': 'application/javascript',
-#     '.css': 'text/css',
-# }
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# # MEDIA FILES
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Cloudinary settings
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
+    'API_KEY': config('CLOUDINARY_API_KEY', default=''),
+    'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
+}
 
-# cloudinary settings
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
-#     'API_KEY': config('CLOUDINARY_API_KEY', default=''),
-#     'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
-# }
+# Use Cloudinary for media files in production, local storage otherwise
+if config('CLOUDINARY_CLOUD_NAME', default=''):
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
-# if config('CLOUDINARY_CLOUD_NAME', default=''):
-#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# else:
-#     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
-
-# Default primary key field type
-# STORAGES = {
-#     "default": {
-#         "BACKEND": DEFAULT_FILE_STORAGE,
-#     },
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
-MEDIA_URL = '/media/'  # URL pour accéder aux fichiers médias
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Dossier où seront stockées les images
- 
+# Static files configuration
 STATIC_URL = '/static/'
- 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
- 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Dossier où les fichiers statiques seront collectés
- 
-# Pour servir les fichiers statiques en mode debug désactivé
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# WhiteNoise for static files
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
